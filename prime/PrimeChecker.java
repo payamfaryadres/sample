@@ -4,16 +4,23 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.function.IntPredicate;
-import java.util.function.Predicate;
-import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class PrimeChecker {
 
     public static boolean isPrime(int i) {
-        IntPredicate isDivisible = index -> i % index == 0;
-        return i > 1 && IntStream.range(2, i).noneMatch(isDivisible);
+        if (i <= 3)
+        return true;
+        else if (i % 2 == 0 || i % 3 == 0 ) {
+            return false;
+        } else {
+            long sqrti = (long) Math.sqrt(i) + 1;
+            for (long j = 6L; i<= sqrti;i=+6 ){
+                if(i%(j-1)==0 || i%(j+1)==0)
+                    return false;
+            }
+        }
+        return true;
     }
 
 
