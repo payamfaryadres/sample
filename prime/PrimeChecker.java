@@ -19,7 +19,6 @@ public class PrimeChecker {
 
     public static void main(String[] args) {
         Path path = Paths.get(args[0]);
-        //Path path = Paths.get("/home/payam/Projects/Test_for_check_code/src/main/resources/primeTest.txt");
         StringBuilder builder = new StringBuilder();
         try (Stream<String> lines = Files.lines(path)) {
             lines.forEach(s -> {
