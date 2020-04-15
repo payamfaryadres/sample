@@ -9,14 +9,11 @@ public class PrimeChecker {
 
 
     public static char isPrime(long input_number) {
-        if (input_number <= 3 || input_number == 5 || input_number == 7)
-            return '1';
-        else if (input_number % 2 == 0 || input_number % 3 == 0 || input_number % 5 == 0 || input_number % 7 == 0)
-            return '0';
-
-        int input_number_sqrt = (int) (Math.sqrt(input_number) + 1);
-        for (int counter = 11; counter < input_number_sqrt; counter += 2) {
-            if (input_number % counter == 0) {
+        if (input_number <= 3) return '1';
+        if (input_number % 2 == 0) return '0';
+        int max = (int) Math.sqrt(input_number) + 1;
+        for (int i = 3; i <= max; i+=2) {
+            if (input_number % i == 0) {
                 return '0';
             }
         }
