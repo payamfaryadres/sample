@@ -15,7 +15,7 @@ public class PrimeChecker {
             String line;
             OutputStream out = new BufferedOutputStream(System.out);
             while ((line = in.readLine()) != null) {
-                out.write((isPrime(convertStringToInt(line)) ).getBytes());
+                out.write((isPrime(Integer.parseInt(line)) ).getBytes());
             }
             out.flush();
             in.close();
@@ -25,6 +25,7 @@ public class PrimeChecker {
 
     private static String isPrime(int num) {
         if (num <= 3) return ONE;
+        if ((num & 1) == 0) return ZERO;
         int max = (int) Math.sqrt(num) + 1;
         for (int i = 3; i <= max; i += 2) {
             if (num % i == 0) {
@@ -34,14 +35,7 @@ public class PrimeChecker {
         return ONE;
     }
 
-    private static int convertStringToInt(String number){
-        int res = 0;
-        int len = number.length();
-        for (int i = 0; i < len; i++) {
-            res = res * 10 + number.charAt(i) - '0';
-        }
-        return res;
-    }
+
 }
 
 
