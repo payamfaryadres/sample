@@ -1,3 +1,7 @@
+
+
+import java.util.*;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class PrimeChecker {
@@ -11,7 +15,7 @@ public class PrimeChecker {
             String line;
             OutputStream out = new BufferedOutputStream(System.out);
             while ((line = in.readLine()) != null) {
-                out.write((isPrime(convertToInt(line)) ).getBytes());
+                out.write((isPrime(Integer.parseInt(line)) ).getBytes());
             }
             out.flush();
             in.close();
@@ -21,6 +25,7 @@ public class PrimeChecker {
 
     private static String isPrime(int num) {
         if (num <= 3) return ONE;
+
         int max = (int) Math.sqrt(num) + 1;
         for (int i = 3; i <= max; i += 2) {
             if (num % i == 0) {
@@ -29,16 +34,7 @@ public class PrimeChecker {
         }
         return ONE;
     }
-    private static int convertToInt(String data) {
-        int num = 0;
-        int i = 0;
-        int len = data.length();
-        while (len > i) {
-            num *= 10;
-            num += data.charAt(i++) - '0';
-        }
-        return num;
-    }
+
 
 }
 
