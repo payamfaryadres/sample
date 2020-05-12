@@ -1,3 +1,3 @@
 FROM openjdk:8-jre-alpine
-COPY countme.jar .
-ENTRYPOINT ["java","-jar","/countme.jar"]
+COPY countme-fat.jar .
+ENTRYPOINT ["java","-jar","/countme-fat.jar"]
